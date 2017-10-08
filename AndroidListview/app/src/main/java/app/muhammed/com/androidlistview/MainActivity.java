@@ -5,13 +5,16 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ListViewCompat;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import app.muhammed.com.androidlistview.model.ContactModel;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListViewCompat mContactListViewCompat;
 
@@ -36,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         mContactListViewCompat.setAdapter(arrayAdapter);
+
+
+        mContactListViewCompat.setOnItemClickListener(this);
 
 
     }
@@ -83,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         strings.add("Muhammed");
         strings.add("Muhammed");
         strings.add("Muhammed");
-        strings.add("Muhammed");
+        strings.add("Thasneem");
         strings.add("Muhammed");
         strings.add("Muhammed");
         strings.add("Muhammed");
@@ -93,6 +99,16 @@ public class MainActivity extends AppCompatActivity {
         strings.add("Muhammed");
 
         return strings;
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+        String itemAtPosition = (String) adapterView.getItemAtPosition(i);
+
+        Toast.makeText(this, itemAtPosition + " pos : " + i, Toast.LENGTH_SHORT).show();
+
 
     }
 }
