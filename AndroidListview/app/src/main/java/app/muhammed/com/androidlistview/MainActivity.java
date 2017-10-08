@@ -1,6 +1,7 @@
 package app.muhammed.com.androidlistview;
 
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ListViewCompat;
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         mContactListViewCompat = (ListViewCompat) findViewById(R.id.contactListView);
-
+        mContactListViewCompat.setDivider(new ColorDrawable(getResources().getColor(R.color.colorAccent)));
+        mContactListViewCompat.setDividerHeight(1);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, getContactString());
 
 
@@ -70,8 +72,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    public ArrayList<String> getContactString(){
+    public ArrayList<String> getContactString() {
 
         ArrayList<String> strings = new ArrayList<>();
 
